@@ -1,0 +1,37 @@
+package app.exam.imageloading
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import app.exam.imageloading.ui.theme.ImageLoadingLibraryImplementationTheme
+
+class ImageLoading : ComponentActivity() {
+
+    private lateinit var imageLoader: ImageDownloadingManager
+
+    val URL1 = "https://i.pinimg.com/originals/93/09/77/930977991c52b48e664c059990dea125.jpg"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ImageLoadingLibraryImplementationTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    imageLoader = ImageDownloadingManager.getInstance(this , CACHE_SIZE)
+                    imageLoader.displayImage(URL1,image1,R.drawable.place_holder)
+
+                }
+            }
+        }
+    }
+}
