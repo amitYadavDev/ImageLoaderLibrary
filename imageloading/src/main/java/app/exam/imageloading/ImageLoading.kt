@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import app.exam.imageloading.cache.Config.Companion.cacheSize
 import app.exam.imageloading.ui.theme.ImageLoadingLibraryImplementationTheme
 
 class ImageLoading : ComponentActivity() {
@@ -27,8 +28,8 @@ class ImageLoading : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    imageLoader = ImageDownloadingManager.getInstance(this , CACHE_SIZE)
-                    imageLoader.displayImage(URL1,image1,R.drawable.place_holder)
+                    imageLoader = ImageDownloadingManager.getInstance(this , cacheSize)
+
 
                 }
             }
